@@ -50,3 +50,12 @@
 - validasi kepemilikan data
 - _jika milik si user yang logged in_ => **next()** menuju handler
 - _jika bukan_ => kasih error 403 "Forbidden"
+
+###### 3. Terapkan **Error Handler**
+
+- reference: http://expressjs.com/en/guide/error-handling.html#writing-error-handlers
+- Dengan error handler kita bisa menghindari yang namanya WET (Write EveryTime)
+- middleware tapi diletakkan di paling belakang
+- isi dengan conditional untuk menentukan res.status(400-500).json(output)
+
+###### 4. Proteksi Credential dengan menggunakan **Environment Variable (.env)**
