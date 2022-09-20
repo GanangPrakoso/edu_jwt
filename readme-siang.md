@@ -2,8 +2,13 @@
 
 ## 🦊Agenda
 
-- Authentication
-- Authorization
+- Authentication = proses identifikasi untuk mengetahui siapa yang mengakses server kita, mengkonsumsi token
+- Authorization = untuk proses validasi dan menentukan previledge apakah user yang sudah logged berhak memodifikasi data
+
+TLDR
+Authentication = identifikasi
+Authorization = penentuan previledge
+
 - Error Handler
 - Environment variable
 
@@ -59,3 +64,5 @@
 - isi dengan conditional untuk menentukan res.status(400-500).json(output)
 
 ###### 4. Proteksi Credential dengan menggunakan **Environment Variable (.env)**
+
+- perlu bantuan package yang namanya dotenv

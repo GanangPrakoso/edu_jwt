@@ -23,6 +23,24 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        name: "Kick Ass",
+        description: "Shut up. Kick ass",
+        image_url:
+          "https://m.media-amazon.com/images/M/MV5BMTMzNzEzMDYxM15BMl5BanBnXkFtZTcwMTc0NTMxMw@@._V1_.jpg",
+        author_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Twenty Five Twenty One",
+        description: "Friendship and beyond",
+        image_url:
+          "https://upload.wikimedia.org/wikipedia/id/thumb/1/15/Twenty-Five_Twenty-One.jpg/250px-Twenty-Five_Twenty-One.jpg",
+        author_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 

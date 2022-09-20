@@ -1,33 +1,50 @@
 const router = require("express").Router();
+const authorization = require("../middlewares/authorization");
 const { Movie } = require("../models");
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   try {
     const movies = await Movie.findAll();
 
     res.status(200).json(movies);
   } catch (err) {
-    res.status(500).json({ message: "Internal Server Error" });
+    // res.status(500).json({ message: "Internal Server Error" });
+    next(err);
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   try {
-    const { name, description, image_url, author_id } = req.body;
+    const { name, description, image_url } = req.body;
     await Movie.create({
       name,
       description,
       image_url,
-      author_id, // masih didapat dari req.body => ganti sesuai req di authentication
+      author_id: req.user.id,
     });
 
     res.status(201).json({ message: `movie ${name} has been created!` });
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Internal Server Error" });
+    next(err);
   }
 });
 
 // TODO: add delete here!
+router.delete("/:movieId", authorization, async (req, res, next) => {
+  try {
+    const { movieId } = req.params;
+    await Movie.destroy({
+      where: {
+        id: movieId,
+      },
+    });
+
+    res
+      .status(200)
+      .json({ message: `movie with id ${movieId} has been deleted` });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
