@@ -59,3 +59,6 @@
 - isi dengan conditional untuk menentukan res.status(400-500).json(output)
 
 ###### 4. Proteksi Credential dengan menggunakan **Environment Variable (.env)**
+
+- untuk menginstall env local perlu bantuan dari package dotenv
+- pasang dotenv di app.js dipaling atas entry point
