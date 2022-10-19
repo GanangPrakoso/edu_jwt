@@ -24,10 +24,10 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: "Kick Ass",
-        description: "Shut up. Kick ass",
+        name: "Chainsaw Man",
+        description: "Denji the chainsaw man",
         image_url:
-          "https://m.media-amazon.com/images/M/MV5BMTMzNzEzMDYxM15BMl5BanBnXkFtZTcwMTc0NTMxMw@@._V1_.jpg",
+          "https://as01.epimg.net/meristation/imagenes/2022/08/05/noticias/1659699263_545679_1659699456_sumario_normal.jpg",
         author_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),

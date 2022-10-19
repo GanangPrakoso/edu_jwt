@@ -8,6 +8,9 @@ const errorHandler = require("./middlewares/errorHandler");
 const router = require("./routes");
 const app = express();
 const PORT = 3000;
+const cors = require("cors");
+
+app.use(cors());
 
 // body parser
 app.use(express.urlencoded({ extended: false }));
