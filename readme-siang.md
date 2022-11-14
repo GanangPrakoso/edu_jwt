@@ -62,4 +62,4 @@
 
 - untuk menginstall env local perlu bantuan dari package dotenv
 - buat file .env dan masukkan value credential di dalamnya
-- pasang dotenv di app.js dipaling atas entry point
+- pasang dotenv di app.js dipaling atas entry point => `require('dotenv').config()`
