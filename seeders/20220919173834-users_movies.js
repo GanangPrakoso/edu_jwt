@@ -15,19 +15,18 @@ module.exports = {
 
     await queryInterface.bulkInsert("Movies", [
       {
-        name: "Saras 008",
-        description: "Pahlawan kebajikan",
+        name: "Chainsaw Man",
+        description: "Manusia gergaji",
         image_url:
-          "https://upload.wikimedia.org/wikipedia/id/7/70/Saras_008_%28Poster%29.jpg",
+          "https://i.pinimg.com/736x/47/b9/d0/47b9d07062937b219d147b2968a58a23.jpg",
         author_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: "Kick Ass",
-        description: "Shut up. Kick ass",
-        image_url:
-          "https://m.media-amazon.com/images/M/MV5BMTMzNzEzMDYxM15BMl5BanBnXkFtZTcwMTc0NTMxMw@@._V1_.jpg",
+        name: "Better Call Saul",
+        description: "It's all good man",
+        image_url: "https://flxt.tmsimg.com/assets/p13837077_b_v8_aa.jpg",
         author_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
