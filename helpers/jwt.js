@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const INI_KONCI = "ini_ga_aman_bos_q";
+const INI_KONCI = "ebel_cobra";
 
 const createToken = (payload) => jwt.sign(payload, INI_KONCI);
 
