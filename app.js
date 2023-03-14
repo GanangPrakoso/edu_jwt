@@ -9,7 +9,7 @@ const router = require("./routes");
 const app = express();
 const PORT = 3000;
 
-// body parser
+// body parsers
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
