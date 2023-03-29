@@ -13,6 +13,20 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const movie = await Movie.findByPk(req.params.id);
+
+    if (!movie) {
+      throw { name: "data_not_found" };
+    }
+    res.status(200).json(movie);
+  } catch (err) {
+    // res.status(500).json({ message: "Internal Server Error" });
+    next(err);
+  }
+});
+
 router.post("/", async (req, res, next) => {
   try {
     const { name, description, image_url } = req.body;
