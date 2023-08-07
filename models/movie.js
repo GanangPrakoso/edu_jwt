@@ -17,12 +17,26 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: { msg: "jangan null" },
-          notEmpty: { msg: "jangan empty" },
+          notNull: { msg: "nama jangan null" },
+          notEmpty: { msg: "nama jangan empty" },
         },
       },
-      description: DataTypes.STRING,
-      image_url: DataTypes.STRING,
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "description jangan null" },
+          notEmpty: { msg: "description jangan empty" },
+        },
+      },
+      image_url: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "image_url jangan null" },
+          notEmpty: { msg: "image_url jangan empty" },
+        },
+      },
       author_id: DataTypes.INTEGER,
     },
     {

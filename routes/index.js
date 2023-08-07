@@ -1,9 +1,12 @@
 const router = require("express").Router();
-const userRouter = require("./users");
-const movieRouter = require("./movies");
+const MovieController = require("../controllers/movieController");
+const UserController = require("../controllers/userController");
 
-router.use("/users", userRouter);
+router.post("/register", UserController.register);
+router.post("/login", UserController.login);
 
-router.use("/movies", movieRouter);
+router.get("/movies", MovieController.findAll);
+router.post("/movies", MovieController.create);
+router.delete("/movies/:id", MovieController.delete);
 
 module.exports = router;
