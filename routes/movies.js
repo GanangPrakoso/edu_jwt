@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
       name,
       description,
       image_url,
-      author_id, // masih didapat dari req.body => ganti sesuai req di authentication
+      author_id,
     });
 
     res.status(201).json({ message: `movie ${name} has been created!` });
