@@ -3,7 +3,7 @@ const { createToken } = require("../helpers/jwt");
 const { comparePasword } = require("../helpers/bcrypt");
 
 class UserController {
-  static async register(req, res) {
+  static async register(req, res, next) {
     try {
       const { email, password } = req.body;
 
@@ -16,11 +16,11 @@ class UserController {
         message: `user with email ${createUser.email} has been created`,
       });
     } catch (err) {
-      res.status(500).json({ message: "ISE" });
+      next(err);
     }
   }
 
-  static async login(req, res) {
+  static async login(req, res, next) {
     try {
       const { email, password } = req.body;
 
@@ -51,13 +51,7 @@ class UserController {
 
       res.status(200).json({ access_token });
     } catch (err) {
-      if (err.name === "invalid_email/password") {
-        res.status(404).json({ message: "user not found" });
-      } else if (err.name === "email/password_required") {
-        res.status(400).json({ message: "email/password is required" });
-      } else {
-        res.status(500).json({ message: "ISE" });
-      }
+      next(err);
     }
   }
 }

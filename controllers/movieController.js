@@ -11,23 +11,19 @@ class MovieController {
     }
   }
 
-  static async create(req, res) {
+  static async create(req, res, next) {
     try {
-      const { name, description, image_url, author_id } = req.body;
+      const { name, description, image_url } = req.body;
       await Movie.create({
         name,
         description,
         image_url,
-        author_id,
+        author_id: req.user.id, // ntar di challenge di ganti
       });
 
       res.status(201).json({ message: `movie ${name} has been created!` });
     } catch (err) {
-      if (err.name === "SequelizeValidationError") {
-        res.status(400).json({ message: err.errors[0].message });
-      } else {
-        res.status(500).json({ message: "Internal Server Error" });
-      }
+      next(err);
     }
   }
 
@@ -43,8 +39,7 @@ class MovieController {
 
       res.status(200).json({ message: `movie with id ${id} has been deleted` });
     } catch (error) {
-      console.log(error, "<<<<");
-      res.status(500).json({ message: "Internal Server Error" });
+      next(error);
     }
   }
 }
