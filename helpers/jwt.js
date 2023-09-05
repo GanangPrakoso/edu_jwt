@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
-const INI_KONCI = "ebel_cobra";
+const JWT_SECRET = "ebel_cobra";
 
-const createToken = (payload) => jwt.sign(payload, INI_KONCI);
+const signToken = (payload) => jwt.sign(payload, JWT_SECRET);
 
 module.exports = {
-  createToken,
+  signToken,
 };

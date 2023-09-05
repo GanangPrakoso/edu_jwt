@@ -1,5 +1,5 @@
 const { User } = require("../models");
-const { createToken } = require("../helpers/jwt");
+const { signToken } = require("../helpers/jwt");
 const { comparePasword } = require("../helpers/bcrypt");
 
 class UserController {
@@ -47,7 +47,7 @@ class UserController {
         id: findUser.id,
       };
 
-      const access_token = createToken(payload);
+      const access_token = signToken(payload);
 
       res.status(200).json({ access_token });
     } catch (err) {
