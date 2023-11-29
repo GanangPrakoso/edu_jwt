@@ -1,7 +1,4 @@
-if (process.env.NODE_ENV !== "production") {
-  // cuma dipakai ditahap development dan testing
-  require("dotenv").config();
-}
+require("dotenv").config();
 
 const express = require("express");
 const errorHandler = require("./middlewares/errorHandler");
