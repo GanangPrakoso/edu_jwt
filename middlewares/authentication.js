@@ -3,10 +3,12 @@ const { User } = require("../models");
 
 const authentication = async (req, res, next) => {
   try {
-    const { access_token } = req.headers;
-    if (!access_token) {
+    const token = req.headers.authorization;
+    if (!token) {
       throw { name: "invalid_token" };
     }
+
+    const access_token = token.split(" ")[1];
 
     const payload = verifyToken(access_token);
 
