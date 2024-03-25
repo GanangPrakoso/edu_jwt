@@ -17,7 +17,6 @@ class MovieController {
       await Movie.create({
         name,
         description,
-        image_url,
         author_id,
       });
 
