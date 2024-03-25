@@ -1,4 +1,11 @@
 const { Movie } = require("../models");
+const cloudinary = require("cloudinary").v2;
+
+cloudinary.config({
+  cloud_name: process.env.cloud_name,
+  api_key: process.env.api_key,
+  api_secret: process.env.api_secret,
+});
 
 class MovieController {
   static async findAll(req, res) {
@@ -42,6 +49,24 @@ class MovieController {
 
       res.status(200).json({ message: `movie with id ${id} has been deleted` });
     } catch (err) {
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
+  static async uploadImage(req, res) {
+    try {
+      const base64Image = req.file.buffer.toString("base64");
+      const base64Url = `data:${req.file.mimetype};base64,${base64Image}`;
+
+      const uploaded = await cloudinary.uploader.upload(base64Url);
+
+      await Movie.update(
+        { image_url: uploaded.secure_url },
+        { where: { id: req.params.id } }
+      );
+
+      res.json({ message: "upload image abangkuh" });
+    } catch (error) {
       res.status(500).json({ message: "Internal Server Error" });
     }
   }
