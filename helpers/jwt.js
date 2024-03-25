@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "ebel_cobra";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const signToken = (payload) => jwt.sign(payload, JWT_SECRET);
 
