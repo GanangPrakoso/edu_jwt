@@ -25,8 +25,6 @@ module.exports = {
       {
         name: "Saras 008",
         description: "Pahlawan kebajikan",
-        image_url:
-          "https://upload.wikimedia.org/wikipedia/id/7/70/Saras_008_%28Poster%29.jpg",
         author_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -34,8 +32,6 @@ module.exports = {
       {
         name: "Jujutsu Kaisen",
         description: "Perang penyihir",
-        image_url:
-          "https://upload.wikimedia.org/wikipedia/id/thumb/4/46/Jujutsu_kaisen.jpg/220px-Jujutsu_kaisen.jpg",
         author_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),

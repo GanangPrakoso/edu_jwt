@@ -31,11 +31,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       image_url: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: { msg: "image_url jangan null" },
-          notEmpty: { msg: "image_url jangan empty" },
-        },
       },
       author_id: DataTypes.INTEGER,
     },
