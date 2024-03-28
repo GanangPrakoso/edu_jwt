@@ -3,7 +3,7 @@ const userRouter = require("./users");
 const movieRouter = require("./movies");
 const authentication = require("../middlewares/authentication");
 
-router.get("/", (req, res) => res.send("halo guyssss"));
+router.get("/", (req, res) => res.send("halo guyssss ini update"));
 router.use("/users", userRouter);
 
 // authentication
