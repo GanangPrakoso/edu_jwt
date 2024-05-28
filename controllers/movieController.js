@@ -52,24 +52,6 @@ class MovieController {
       res.status(500).json({ message: "Internal Server Error" });
     }
   }
-
-  static async uploadImage(req, res) {
-    try {
-      const base64Image = req.file.buffer.toString("base64");
-      const base64Url = `data:${req.file.mimetype};base64,${base64Image}`;
-
-      const uploaded = await cloudinary.uploader.upload(base64Url);
-
-      await Movie.update(
-        { image_url: uploaded.secure_url },
-        { where: { id: req.params.id } }
-      );
-
-      res.json({ message: "upload image abangkuh" });
-    } catch (error) {
-      res.status(500).json({ message: "Internal Server Error" });
-    }
-  }
 }
 
 module.exports = MovieController;
